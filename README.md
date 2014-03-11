@@ -6,3 +6,9 @@ Personal finance app.
 
 - Multiple Accounts
 - Multiple Currencies
+
+## Running the app
+
+- Clone the project
+- Execute `npm install`
+- Then execute `gulp`

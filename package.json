@@ -3,7 +3,11 @@
   "main": "www/index.html",
   "description": "Personal finance app",
   "version": "0.1.0",
-  "keywords": [ "finance", "money", "wallet" ],
+  "keywords": [
+    "finance",
+    "money",
+    "wallet"
+  ],
   "window": {
     "title": "Money",
     "toolbar": false,
@@ -13,5 +17,12 @@
     "position": "mouse",
     "min_width": 400,
     "min_height": 200
+  },
+  "devDependencies": {
+    "gulp": "~3.5.5",
+    "gulp-stylus": "0.0.14",
+    "nodewebkit": "~0.8.5",
+    "gulp-exec": "~1.0.4",
+    "gulp-clean": "~0.2.4"
   }
 }
