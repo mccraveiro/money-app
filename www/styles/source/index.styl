@@ -1,6 +1,13 @@
+// Imports
+
+@import "blend"
+
 // Global Variables
 
 bar-height = 50px
+dark-grey = #555555
+light-blue = #3498db
+dark-blue = #2c3e50
 
 // Styles
 
@@ -12,8 +19,7 @@ body
     width: 100%
     -webkit-user-select: none
 
-.frame
-.topbar
+.bar
     height: bar-height
     line-height: bar-height
     overflow: hidden
@@ -21,62 +27,81 @@ body
     width: 100%
 
 .frame
-    background-color: #555555
+    @extend .bar
+    background-color: dark-grey
     -webkit-app-region: drag
 
+    nav.left
+        box-sizing: border-box
+        display: block
+        float: left
+        height: 100%
+        padding: 0 16px
+        width: 100px
+
+        .btn-os
+            background-color: #999999
+            border: 0
+            border-radius: 6px
+            cursor: pointer
+            display: inline-block
+            height: 12px
+            outline: 0
+            width: 12px
+
+            &.close:hover
+                background: #e74c3c
+
+            &.max:hover
+                background: #27ae60
+
+            &.min:hover
+                background: #f1c40f
+
+    nav.right
+        display: block
+        float: right
+        height: 100%
+        margin: 0
+        text-align: right
+        width: 100px
+
+        .fullscreen
+            background-color: transparent
+            border: 0
+            color: #ffffff
+            cursor: pointer
+            display: inline-block
+            font-size: 16px
+            text-align: center
+            width: 48px
+
+    h1
+        color: #ffffff
+        cursor: default
+        display: block
+        font-size: 18px
+        font-weight: 100
+        margin: 0 auto
+        text-align: center
+
 .topbar
-    background-color: #3498db
+    @extend .bar
+    background-color: light-blue
 
-.frame nav.left
-    box-sizing: border-box
-    display: block
-    float: left
+.app-content
+    display: flex
+    flex-direction: row
     height: 100%
-    padding: 0 16px
-    width: 100px
+    width: 100%
 
-.frame nav.left .btn-os
-    background-color: #999999
-    border: 0
-    border-radius: 6px
-    cursor: pointer
-    display: inline-block
-    height: 12px
-    outline: 0
-    width: 12px
+    .sidebar
+        background-color: dark-blue
+        flex: 0 0 200px
 
-    &.close:hover
-        background: #e74c3c
+        .account-selector
+            @extend .bar
+            background-color: blend(dark-blue, light-blue, 50%)
 
-    &.max:hover
-        background: #27ae60
-
-    &.min:hover
-        background: #f1c40f
-
-.frame nav.right
-    display: block
-    float: right
-    height: 100%
-    margin: 0
-    text-align: right
-    width: 100px
-
-.frame nav.right .fullscreen
-    background-color: transparent
-    border: 0
-    color: #ffffff
-    cursor: pointer
-    display: inline-block
-    font-size: 16px
-    text-align: center
-    width: 48px
-
-.frame h1
-    color: #ffffff
-    cursor: default
-    display: block
-    font-size: 18px
-    font-weight: 100
-    margin: 0 auto
-    text-align: center
+    .main
+        flex: 1
